@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Recent Customers",
+    "description": "Latest Stripe customers",
+    "note": "Requires the Stripe gem",
+    "code": [
+      "Bord.list :recent_customers,",
+      "  label: \"Recent Customers\",",
+      "  items: -> {",
+      "    Stripe::Customer.list(limit: 5).map do |customer|",
+      "      {label: customer.email || customer.id, href: \"https://dashboard.stripe.com/customers/#{customer.id}\"}",
+      "    end",
+      "  }"
+    ]
+  },
+  {
+    "name": "Recent Charges",
+    "description": "Latest Stripe charges",
+    "note": "Requires the Stripe gem",
+    "code": [
+      "Bord.list :recent_charges,",
+      "  label: \"Recent Charges\",",
+      "  items: -> {",
+      "    Stripe::Charge.list(limit: 5).map do |charge|",
+      "      {label: \"#{charge.amount / 100.0} #{charge.currency.upcase}\", href: \"https://dashboard.stripe.com/charges/#{charge.id}\"}",
+      "    end",
+      "  }"
+    ]
+  }
+]

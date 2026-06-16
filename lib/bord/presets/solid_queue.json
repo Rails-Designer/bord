@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Failed Jobs",
+    "description": "Number of failed jobs in Solid Queue",
+    "code": "Bord.metric :failed_jobs, label: \"Failed Jobs\", value: SolidQueue::FailedExecution.count"
+  },
+  {
+    "name": "Pending Jobs",
+    "description": "Count of ready jobs waiting to be processed",
+    "code": "Bord.metric :pending_jobs, label: \"Pending Jobs\", value: SolidQueue::ReadyExecution.count"
+  }
+]

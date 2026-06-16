@@ -6,7 +6,7 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Conductor
+module Bord
   class Application < Rails::Application
     config.load_defaults Rails::VERSION::STRING.to_f
 

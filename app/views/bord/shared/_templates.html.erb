@@ -1,0 +1,75 @@
+<template id="bord-value">
+  <p class="value" attract-field="value"></p>
+</template>
+
+<template id="bord-value-link">
+  <a class="value" attract-href attract-field="value"></a>
+</template>
+
+<template id="bord-entry">
+  <li class="item">
+    <span class="icon" attract-icon></span>
+
+    <a class="entry" attract-href><span attract-field="label"></span></a>
+
+    <div class="actions"></div>
+  </li>
+</template>
+
+<template id="bord-entry-link">
+  <a class="action" attract-href attract-variant attract-field="label"></a>
+</template>
+
+<template id="bord-entry-action">
+  <form action="<%= bord.actions_path %>" method="post" @attract attract-confirm>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="owner" attract-field="owner">
+    <input type="hidden" name="record" attract-field="record">
+    <input type="hidden" name="method" attract-field="method">
+    <input type="hidden" name="params" attract-field="params">
+
+    <button class="action" attract-variant attract-field="label"></button>
+  </form>
+</template>
+
+<template id="bord-page-entry">
+  <li class="record">
+    <span class="icon" attract-icon></span>
+
+    <div class="body">
+      <strong class="title" attract-field="title"></strong>
+
+      <span class="description" attract-field="description"></span>
+    </div>
+
+    <div class="actions"></div>
+  </li>
+</template>
+
+<template id="bord-page-detail">
+  <div class="detail">
+    <div class="heading">
+      <span class="icon" attract-icon></span>
+
+      <h3 class="title" attract-field="title"></h3>
+    </div>
+
+    <p class="description" attract-field="description"></p>
+
+    <dl class="details"></dl>
+
+    <div class="actions"></div>
+  </div>
+</template>
+
+<template id="bord-page-field">
+  <div class="field">
+    <dt attract-field="label"></dt>
+
+    <dd attract-field="value"></dd>
+  </div>
+</template>
+
+<template id="bord-flash-template">
+  <div id="bord-flash" class="flash flash-notice"><span attract-field="message"></span></div>
+</template>

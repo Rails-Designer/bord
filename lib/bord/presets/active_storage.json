@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Total Blobs",
+    "description": "Total Active Storage blob count",
+    "code": "Bord.metric :total_blobs, label: \"Total Blobs\", value: ActiveStorage::Blob.count"
+  },
+  {
+    "name": "Recent Uploads",
+    "description": "Latest Active Storage uploads",
+    "code": [
+      "Bord.list :recent_uploads,",
+      "  label: \"Recent Uploads\",",
+      "  items: -> {",
+      "    ActiveStorage::Blob.order(created_at: :desc).limit(5).map do |blob|",
+      "      {label: blob.filename.to_s}",
+      "    end",
+      "  }"
+    ]
+  }
+]

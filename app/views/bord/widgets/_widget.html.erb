@@ -1,0 +1,25 @@
+<li class="widget widget--<%= widget.kind %>" id="widget-<%= widget.id %>">
+  <h3 class="title">
+    <%= icon widget.icon, class: "icon" if widget.icon %>
+
+    <%= widget.label %>
+  </h3>
+
+  <% if widget.kind.metric? %>
+    <% if widget.href %>
+      <a class="value" href="<%= widget.href %>" id="widget-<%= widget.id %>-value"></a>
+    <% else %>
+      <p class="value" id="widget-<%= widget.id %>-value"></p>
+    <% end %>
+  <% end %>
+
+  <% if widget.kind.list? %>
+    <ul class="items" id="widget-<%= widget.id %>-entries"></ul>
+  <% end %>
+
+  <%= tag.div class: "actions" do %>
+    <% widget.actions.each do %>
+      <%= render "bord/widgets/action", action: it %>
+    <% end %>
+  <% end if widget.actions.any? %>
+</li>

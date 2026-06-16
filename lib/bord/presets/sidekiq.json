@@ -1,0 +1,28 @@
+[
+  {
+    "name": "Retries",
+    "description": "Number of Sidekiq jobs waiting to retry",
+    "note": "Requires the Sidekiq gem",
+    "code": "Bord.metric :retries, label: \"Retries\", value: Sidekiq::RetrySet.new.size"
+  },
+  {
+    "name": "Dead Jobs",
+    "description": "Number of dead Sidekiq jobs",
+    "note": "Requires the Sidekiq gem",
+    "code": "Bord.metric :dead_jobs, label: \"Dead Jobs\", value: Sidekiq::DeadSet.new.size"
+  },
+  {
+    "name": "Queue Sizes",
+    "description": "Job count per Sidekiq queue",
+    "note": "Requires the Sidekiq gem",
+    "code": [
+      "Bord.list :queue_sizes,",
+      "  label: \"Queue Sizes\",",
+      "  items: -> {",
+      "    Sidekiq::Queue.all.map do |queue|",
+      "      {label: \"#{queue.name}: #{queue.size}\"}",
+      "    end",
+      "  }"
+    ]
+  }
+]

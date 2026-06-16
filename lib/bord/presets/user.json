@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Recent Users",
+    "description": "Latest user signups",
+    "note": "Replace User with your model name",
+    "code": [
+      "Bord.list :recent_users,",
+      "  label: \"Recent Users\",",
+      "  items: -> {",
+      "    User.order(created_at: :desc).limit(5).map do |user|",
+      "      {label: user.email}",
+      "    end",
+      "  }"
+    ]
+  },
+  {
+    "name": "User Count",
+    "description": "Total registered users",
+    "note": "Replace User with your model name",
+      "code": "Bord.metric :users, label: \"Users\", value: -> { User.count }"
+  }
+]

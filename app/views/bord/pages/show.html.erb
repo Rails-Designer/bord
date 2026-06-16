@@ -1,0 +1,9 @@
+<header class="page-header">
+  <div>
+    <h1 class="title"><%= @page.label %></h1>
+
+    <%= tag.p @page.description, class: "description" if @page.description %>
+  </div>
+</header>
+
+<ul class="records" id="page-entries" @action="get#<%= bord.page_path(@page.id, format: :json) %>:mounted"><li class="placeholder">Loading records…</li></ul>

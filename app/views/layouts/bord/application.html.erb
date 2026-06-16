@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= Bord.title %></title>
+
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "bord/application", media: "all" %>
+  <%= javascript_include_tag "bord/application" %>
+
+  <style>
+    :root { --brand-hue: <%= Bord.brand_hue %>; }
+  </style>
+</head>
+<body>
+  <header class="navigation">
+    <%= link_to Bord.title, bord.root_path, class: "brand" %>
+  </header>
+
+  <main class="content">
+    <% if flash[:notice] %>
+      <div class="flash flash-notice"><%= flash[:notice] %></div>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <div class="flash flash-alert"><%= flash[:alert] %></div>
+    <% end %>
+
+    <div id="bord-flash"></div>
+
+    <%= yield %>
+  </main>
+
+  <%= render "bord/shared/templates" %>
+</body>
+</html>

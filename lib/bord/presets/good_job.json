@@ -1,0 +1,25 @@
+[
+  {
+    "name": "Failed Jobs",
+    "description": "Number of failed Good Job jobs",
+    "code": "Bord.metric :failed_jobs, label: \"Failed Jobs\", value: GoodJob::Job.where.not(error: nil).count"
+  },
+  {
+    "name": "Pending Jobs",
+    "description": "Count of pending Good Job jobs",
+    "code": "Bord.metric :pending_jobs, label: \"Pending Jobs\", value: GoodJob::Job.where(dispatched_at: nil).count"
+  },
+  {
+    "name": "Queue Depth",
+    "description": "Jobs per queue",
+    "code": [
+      "Bord.list :queue_depth,",
+      "  label: \"Queue Depth\",",
+      "  items: -> {",
+      "    GoodJob::Job.where(dispatched_at: nil).group(:queue_name).count.map do |name, count|",
+      "      {label: \"#{name}: #{count}\"}",
+      "    end",
+      "  }"
+    ]
+  }
+]

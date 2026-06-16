@@ -1,0 +1,13 @@
+<header class="page-header">
+  <div>
+    <%= link_to bord.page_path(@page.id), class: "back-link" do %>
+      <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"/></svg>
+
+      <span>Back to <%= @page.label %></span>
+    <% end %>
+
+    <h1 class="title"><%= @page.label %></h1>
+  </div>
+</header>
+
+<div id="page-detail" @action="get#<%= bord.page_record_path(@page.id, params[:id], format: :json) %>:mounted"><div class="placeholder">Loading…</div></div>

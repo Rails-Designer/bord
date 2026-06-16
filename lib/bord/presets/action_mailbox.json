@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Failed Emails",
+    "description": "Number of failed inbound emails",
+    "code": "Bord.metric :failed_emails, label: \"Failed Emails\", value: ActionMailbox::InboundEmail.where(status: :failed).count"
+  },
+  {
+    "name": "Recent Inbound Emails",
+    "description": "Latest inbound emails",
+    "code": [
+      "Bord.list :inbound_emails,",
+      "  label: \"Inbound Emails\",",
+      "  items: -> {",
+      "    ActionMailbox::InboundEmail.order(created_at: :desc).limit(5).map do |email|",
+      "      {label: email.message_id, href: \"/rails/bord/action_mailbox/inbound_emails/#{email.id}\"}",
+      "    end",
+      "  }"
+    ]
+  }
+]

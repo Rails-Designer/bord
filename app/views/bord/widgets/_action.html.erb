@@ -1,0 +1,7 @@
+<div class="block w-full">
+  <% if action[:action] %>
+    <%= button_to action[:label], actions_path, params: action[:action], form_class: "block w-full", class: action[:variant] ? "action action--#{action[:variant]}" : "action" %>
+  <% else %>
+    <%= button_to action[:label], action[:href], method: action[:method] || :get, form_class: "block w-full", class: action[:variant] ? "action action--#{action[:variant]}" : "action" %>
+  <% end %>
+</div>

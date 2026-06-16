@@ -1,0 +1,17 @@
+<div class="dashboard" @action="get#<%= bord.data_path %>:mounted">
+  <% @dashboard.categories.each do |category, widgets| %>
+    <category class="category">
+      <h2 class="title"><%= category.label %></h2>
+
+      <ul class="widgets">
+        <%= render partial: "widget", collection: widgets %>
+      </ul>
+    </category>
+  <% end %>
+
+  <category class="category">
+    <ul class="widgets">
+      <%= render partial: "widget", collection: @dashboard.uncategoryed_widgets %>
+    </ul>
+  </category>
+</div>
