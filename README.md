@@ -1,6 +1,6 @@
 # Bord
 
-A Rails engine that puts a dashboard at `/bord`. Define metrics, lists, categories and pages in `config/bord/`. Every widget runs your own code: ActiveRecord queries, Stripe calls, Good Job stats, Action Mailbox records.
+A Rails engine for a dashboard with metrics, lists, categories and pages. Every widget runs your own code: ActiveRecord queries, Stripe calls, Good Job stats, Action Mailbox records.
 
 ![Bord - Rails engine for a customisable dashboard](https://raw.githubusercontent.com/Rails-Designer/bord/HEAD/.github/cover.jpg)
 
