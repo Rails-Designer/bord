@@ -9,7 +9,7 @@ A Rails engine that puts a dashboard at `/bord`. Define metrics, lists, categori
 <a href="https://railsdesigner.com/" target="_blank">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Rails-Designer/bord/HEAD/.github/logo-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Rails-Designer/board/HEAD/.github/logo-light.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Rails-Designer/bord/HEAD/.github/logo-light.svg">
     <img alt="Rails Designer" src="https://raw.githubusercontent.com/Rails-Designer/bord/HEAD/.github/logo-light.svg" width="240" style="max-width: 100%;">
   </picture>
 </a>
@@ -29,7 +29,7 @@ Bord.draw do
   title "Spinal Labs"
 
   category :financials, label: "Financials", position: 1 do
-    metric :mrr, label: "MRR", icon: :"dollar-sign", value: -> { Current.account.mrr.format }
+    metric :mrr, label: "MRR", value: -> { Current.account.mrr.format }
     list :recent_users, label: "Recent users", items: -> { User.order(created_at: :desc).limit(5) }
   end
 end
