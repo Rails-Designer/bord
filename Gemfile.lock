@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bord (0.1.0)
+    bord (0.5.0)
       rails (>= 7.1.0)
 
 GEM
