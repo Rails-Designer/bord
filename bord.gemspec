@@ -13,8 +13,8 @@ Gem::Specification.new do |spec|
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/railsdesigner/bord"
-  spec.metadata["changelog_uri"] = "https://github.com/railsdesigner/bord/releases"
+  spec.metadata["source_code_uri"] = "https://github.com/Rails-Designer/bord"
+  spec.metadata["changelog_uri"] = "https://github.com/Rails-Designer/bord/releases"
 
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
     Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
